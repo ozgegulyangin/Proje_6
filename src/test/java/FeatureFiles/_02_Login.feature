@@ -1,18 +1,34 @@
 Feature: Login Functionality
 
-  Background:
+
+  Scenario Outline: Login with valid username and password
     Given Navigate to MainPage
+    When User sending the keys in LeftNav
+      | userName2 | <name>     |
+      | password2 | <password> |
+    And Click on the element in LeftNav
+      | login |
 
-  Scenario Outline:Login with valid username and password
+    Then Success message account is displayed
 
-    And User sending the keys in Left Nav
-      | userName2       | <name>     |
-      | password2       | <password>     |
-      | integrationCode | <intCode>  |
-      | priorityCode    | <priority> |
+    And  Click on the element in LeftNav
+      | logOut |
     Examples:
-      | name | code | intCode | priority |
+      | name      | password |
+      | John_Wick | 123456*  |
 
 
-  Scenario Outline:User Login Negative Test
+  Scenario Outline: Negative Test
+    Given Navigate to MainPage
+    When User sending the keys in LeftNav
+      | userName2 | <name>     |
+      | password2 | <password> |
+    And Click on the element in LeftNav
+      | login |
+    Then Success message should not be displayed
+    Examples:
+      | name      | password |
+      | Recep     | 123456*  |
+      | John_Wick | 12345    |
+
 

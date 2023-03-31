@@ -35,8 +35,7 @@ public class DialogContent extends Parent{
     public WebElement registerButton2;
     @FindBy(css = "h1[class='title']+p")
     public WebElement registerSuccess;
-    @FindBy(linkText = "Log Out")
-    public WebElement logOut;
+
     @FindBy(xpath = "//h1[text()='Accounts Overview']")
     public WebElement loginSuccess;
     @FindBy(xpath = "//h1[text()='Error!']")
@@ -49,11 +48,11 @@ public class DialogContent extends Parent{
     @FindBy(name = "payee.address.city")
     public WebElement billCity;
     @FindBy(name = "payee.address.state")
-    public WebElement billAddress;
+    public WebElement billState;
     @FindBy(name = "payee.address.zipCode")
     public WebElement billZipcode;
     @FindBy(name = "payee.accountNumber")
-    public WebElement billAccount;
+    public WebElement billAccountNumber;
     @FindBy(css = "[name='verifyAccount']")
     public WebElement verifyAccount;
     @FindBy(css = "[name='amount']")
@@ -64,6 +63,9 @@ public class DialogContent extends Parent{
     public WebElement payment;
     @FindBy(xpath = "//h1[text()='Bill Payment Complete']")
     public WebElement paymentComplete;
+    @FindBy(name = "payee.phoneNumber")
+    public WebElement phoneNumber;
+
 
 
     public WebElement getWebElement(String strButton) {
@@ -78,6 +80,21 @@ public class DialogContent extends Parent{
             case "UserName": return userName;
             case "Password": return password;
             case "ConfirmPassword": return confirmPassword;
+
+            case "billName": return billName;
+            case "billAdress": return billAdress;
+            case "billCity": return billCity;
+            case "billState": return billState;
+            case "billZipcode": return billZipcode;
+            case "billAccountNumber": return billAccountNumber;
+            case "verifyAccount": return verifyAccount;
+            case "amount": return amount;
+            case "accountId": return accountId;
+            case "sendPayment": return payment;
+            case "paymentComplete": return paymentComplete;
+            case "phoneNumber": return phoneNumber;
+
+
 
         }
         return null;

@@ -15,9 +15,7 @@ public class BaseDriver {
         logger.setLevel(Level.SEVERE);
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
         if (driver == null) {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
-            driver = new ChromeDriver(options);
+            driver = new ChromeDriver();
             driver.manage().window().maximize();
         }
         return driver;
